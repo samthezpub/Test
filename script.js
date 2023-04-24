@@ -10,7 +10,8 @@ async function SendResponse() {
   return text;
 }
 console.log(SendResponse());
-
+var date = new Date (); 
+console.log (date.getDate());
 SendResponse().then((result) => {
   console.log(result.forecast);
 })
