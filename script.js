@@ -1,16 +1,14 @@
 
-function SearchCity() {
-  
-  SendResponse();
-}
-
 function main()
 {
 
-
+  
 async function SendResponse() {
-  var city = "Mariupol";
-  city = document.getElementById("city").value;
+  let city = "Mariupol";
+  if (document.getElementById("city").value != "Найдём ваш город?") {
+    city = document.getElementById("city").value;
+  }
+  
   console.log(city);
   let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=a9ae892c55bd45c7a17184125232104&q=${city}&days=7&aqi=yes&alerts=yes`, {
     method: 'GET',
@@ -22,6 +20,7 @@ async function SendResponse() {
   
   return text;
 }
+
 
 
 
@@ -64,7 +63,9 @@ SendResponse().then((result) => {
     
   }
   
-
+  
+  
 })
 }
 
+main();
